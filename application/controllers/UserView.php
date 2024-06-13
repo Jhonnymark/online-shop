@@ -5,7 +5,6 @@ class UserView extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        // Load the model
         $this->load->model('UserView_model');
     }
 

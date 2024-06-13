@@ -5,20 +5,17 @@ class Address_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
-        // Load necessary libraries
         $this->load->database();
     }
 
     public function add_address($address_data) {
         // Insert the address data into the database
         $this->db->insert('addresses', $address_data);
-        // Return the inserted address ID
         return $this->db->insert_id();
     }
 
     public function set_default_address($address_id) {
-        // Set the selected address as default (you may implement your logic here)
-        // For example, update a user's default address field in the user's table
+
     }
 
     public function get_address_details($address_id) {

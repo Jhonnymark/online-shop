@@ -41,7 +41,7 @@ class Category extends MY_Controller {
 
    public function edit_category($category_id) {
       $data['category'] = $this->category->get($category_id);
-      $data['categories'] = $this->category->get_all(); // Changed the key to avoid conflicts
+      $data['categories'] = $this->category->get_all();
       $this->load->view('admin/edit_category', $data); 
    }
 

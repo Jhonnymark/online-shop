@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Cart</title>
     <style>
         body {
@@ -113,6 +114,35 @@
     height: auto; /* Maintain aspect ratio */
     display: block;
 }
+.cart-sec {
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -10px; /* Adjust this value to position the count properly */
+            right: -10px; /* Adjust this value to position the count properly */
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cart-sec {
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 4px;
+            font-size: 12px;
+        }
     </style>
     <script>
         function menutoggle() {
@@ -124,29 +154,34 @@
 <body>
 <div class="navbar">
 <div class="logo-circle">
-    <a href="<?php echo base_url('customer_dash'); ?>">
+    <a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">
         <img src="<?php echo base_url('images/mj_logo.png'); ?>" alt="Logo">
     </a>
 </div>
     <nav id="menuItems">
-        <ul>
-            <li><a href="<?php echo base_url('customer_dash'); ?>">Home</a></li>
-            <li><a href="<?php echo base_url('products'); ?>">Products</a></li>
-            <li><a href="<?php echo base_url('my_orders'); ?>">My Orders</a></li>
+    <ul>
+            <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Home</a></li>
+            <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Products</a></li>
+            <li><a href="<?php echo base_url('index.php/customer/my-orders'); ?>">My Orders</a></li>
             <li><a href="<?php echo base_url('about'); ?>">About</a></li>
         </ul>
     </nav> 
     <div class="setting-sec">
-        <a href="<?php echo base_url('account'); ?>">
+        <a href="javascript:void(0)" class="user-icon">
             <i class="fa-solid fa-user"></i>
         </a>
+        <div class="dropdown">
+            <a href="<?php echo base_url('account'); ?>">Account</a>
+            <a href="<?php echo base_url('index.php/user/logout'); ?>">Logout</a>
+        </div>
         <div class="cart-sec">
-            <a href="<?php echo base_url('cart-view'); ?>">
-                <span class="cart-count"><?php $cart_count = isset($cart_count) ? $cart_count : 0; ?></span>
-                <img src="<?php echo base_url('assets/images/cart.png'); ?>" width="30px" height="30px" alt="Cart">
+            <a href="<?php echo base_url('index.php/cart/view'); ?>">
+                <i class="fas fa-shopping-cart"></i> <!-- Cart icon -->
+                <?php if ($cart_count > 0): ?>
+                    <span class="cart-count"><?php echo $cart_count; ?></span>
+                <?php endif; ?>
             </a>
         </div>
-        <img src="<?php echo base_url('assets/images/menu.png'); ?>" class="menu-icon" onclick="menutoggle()" alt="Menu">
     </div>
 </div>
 

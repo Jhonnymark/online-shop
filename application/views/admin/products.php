@@ -6,6 +6,7 @@
     <title>Product Management</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         .dt-buttons .dt-button {
             background-color: green;
@@ -199,6 +200,43 @@ text-decoration:none;
                 margin-left: 0; /* Remove margin for smaller screens */
             }
         }
+        .navbar-horizontal {
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    background-color: #2f4f4f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.main-content {
+    display: flex;
+    margin-top: 60px; /* Ensure content doesn't hide behind fixed navbar */
+}
+
+.navbar-vertical {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Fix the position */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.content-area {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 230px; /* Adjust for the width of the vertical navbar */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+        
     </style>
 </head>
 <body>
@@ -217,15 +255,13 @@ text-decoration:none;
 <div class="main-content">
     <div class="navbar-vertical">
         <nav id="menuItems">
-            <ul>
-                <li><a href="<?= base_url('admin/admin_dash'); ?>">Dashboards</a></li>
-                <li><a href="<?= base_url('admin/reports'); ?>">Reports</a></li>
-                <li><a href="<?= base_url('index.php/admin/manage_order'); ?>">Manage Orders</a></li>
-                <li><a href="<?= base_url('admin/products'); ?>">Manage Products</a></li>
-                <li><a href="<?= base_url('admin/promo'); ?>">Promo</a></li>
-                <li><a href="<?= base_url('admin/category'); ?>">Manage Categories</a></li>
-                <li><a href="<?= base_url('admin/user'); ?>">Manage Users</a></li>
-                <li><a href="<?= base_url('admin/about'); ?>">About</a></li>
+        <ul>
+                <li><a href="<?= base_url('index.php/admin/admin_dash'); ?>"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="<?= base_url('index.php/admin/manage_order'); ?>"><i class="fas fa-shopping-cart"></i> Manage Orders</a></li>
+                <li><a href="<?= base_url('index.php/admin/products'); ?>"><i class="fas fa-box"></i> Manage Products</a></li>
+                <li><a href="<?= base_url('index.php/admin/category'); ?>"><i class="fas fa-tags"></i> Manage Categories</a></li>
+                <li><a href="<?= base_url('index.php/admin/users_view'); ?>"><i class="fas fa-users"></i> Manage Users</a></li>
+                <li><a href="<?= base_url('index.php/admin/products/delivery_settings'); ?>"><i class="fas fa-cog"></i> Settings</a></li>
             </ul>
         </nav>
     </div>
@@ -266,8 +302,6 @@ text-decoration:none;
                             <td>
                                 <a class="btn btn-outline-success"
                                    href="<?php echo base_url('index.php/products/edit/' . $product->product_id) ?>">Edit</a>
-                                <a class="btn btn-outline-danger" href="#"
-                                   onclick="confirmDelete('<?php echo base_url('index.php/products/delete/' . $product->product_id); ?>')">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

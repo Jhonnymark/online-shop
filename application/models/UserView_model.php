@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class UserView_model extends CI_Model {
 
     // Table name
-    protected $table = 'users'; // Assuming your table name is 'users'
-
+    protected $table = 'users';
     // Constructor
     public function __construct() {
         parent::__construct();

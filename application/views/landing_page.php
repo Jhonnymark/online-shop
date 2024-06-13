@@ -3,42 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4M Online Grocery Store</title>
+    <title>MJ's Online Grocery Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Global styles */
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f8f8f8;
-            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
         }
 
-        /* Header */
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header styles */
         .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
         }
 
-        .logo-circle img {
+        .logo-circle {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             overflow: hidden;
+            margin-left: 20px;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: auto;
         }
 
         #menuItems ul {
-            list-style: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
             display: flex;
         }
 
@@ -46,128 +54,145 @@
             margin-right: 20px;
         }
 
-        #menuItems ul li:last-child {
-            margin-right: 0;
-        }
-
         #menuItems ul li a {
             text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            color: #fff;
+            font-weight: bold;
         }
 
-        #menuItems ul li a:hover {
-            color: #666;
+        .setting-sec {
+            margin-right: 20px;
+            display: flex;
+            color: white;
         }
-
-        .fa-solid.fa-user {
-            font-size: 24px;
-            color: #666;
-            transition: color 0.3s ease;
+        a{
+            text-decoration: none;
         }
-
-        .fa-solid.fa-user:hover {
-            color: #333;
-        }
-
         .cart-sec {
             position: relative;
         }
 
-        .cart-count {
+        .cart-sec .cart-count {
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #ff6347;
-            color: white;
-            border-radius: 50%;
-            padding: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: #333;
+            top: -5px;
+            right: -10px;
+            background-color: #ff0000;
             color: #fff;
-            padding: 100px 20px;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Hero section */
+        .hero {
+            background: url('hero-background.jpg') no-repeat center center/cover;
+            color: #fff;
             text-align: center;
+            padding: 4rem 0;
         }
 
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 600px;
+            margin: auto;
         }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 40px;
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
 
         .btn {
-            padding: 12px 24px;
-            background-color: #ff6347;
+            display: inline-block;
+            background-color: #ff0000;
             color: #fff;
+            padding: 0.8rem 2rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #ff483f;
+            background-color: #cc0000;
         }
 
-        /* Featured Products Section */
+        /* Featured products section */
         .featured-products {
-            padding: 80px 20px;
+            padding: 4rem 0;
             text-align: center;
         }
 
-        .featured-products h2 {
-            font-size: 24px;
-            margin-bottom: 40px;
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 2rem;
         }
 
-        /* Benefits Section */
+        .product-item {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 250px;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Benefits section */
         .benefits {
-            background-color: #f8f8f8;
-            padding: 80px 20px;
+            background-color: #fff;
+            padding: 4rem 0;
             text-align: center;
         }
 
         .benefit-item {
-            margin-bottom: 40px;
+            margin-bottom: 2rem;
         }
 
         .benefit-item i {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ff6347;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff0000;
         }
 
         .benefit-item h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .benefit-item p {
-            font-size: 18px;
+            font-size: 1.1rem;
+            color: #666;
         }
 
-        /* Footer */
+        /* Footer styles */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 20px;
+            padding: 1rem 0;
+            margin-top: 2rem;
         }
+h1, p{
+    color: black;
+}
     </style>
 </head>
 <body>
     <header class="navbar">
         <div class="logo-circle">
-            <img src="logo.png" alt="Logo">
+            <img src="<?php echo base_url('images/mj_logo.png'); ?>" alt="Logo">
         </div>
         <nav id="menuItems">
             <ul>
@@ -177,13 +202,9 @@
             </ul>
         </nav>
         <div class="setting-sec">
-            <a href="#">
-                <i class="fa-solid fa-user"></i>
-            </a>
+            <a href="#">Register</a>
             <div class="cart-sec">
-                <a href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
+                <a href="user/login">Login
                 </a>
             </div>
         </div>
@@ -191,41 +212,60 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to 4M Grocery Store</h1>
+            <h1>Welcome to MJ's Grocery Store</h1>
             <p>Your one-stop shop for fresh groceries delivered to your doorstep.</p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="user/login" class="btn">Shop Now</a>
         </div>
     </section>
 
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-list">
-            <!-- Display featured products here -->
-        </div>
-        <a href="#" class="btn">View All Products</a>
-    </section>
+    <div class="container">
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="<?php echo base_url('images/cheese-cake.png'); ?>" alt="Product 1">
+                    <h3>Cheese Cake</h3>
+                    <p>₱ 10.00</p>
+                    <a href="user/login" class="btn">Add to Cart</a>
+                </div>
+                <div class="product-item">
+                    <img src="<?php echo base_url('images/ligo-green.png'); ?>" alt="Product 2">
+                    <h3>Ligo Green</h3>
+                    <p>₱25.00</p>
+                    <a href="user/login" class="btn">Add to Cart</a>
+                </div>
+                <div class="product-item">
+                    <img src="<?php echo base_url('images/LM_chicken.png'); ?>" alt="Product 3">
+                    <h3>Lucky Me Chicken</h3>
+                    <p>₱11.00</p>
+                    <a href="user/login" class="btn">Add to Cart</a>
+                </div>
+            </div>
+            <a href="user/login" class="btn">View All Products</a>
+        </section>
 
-    <section class="benefits">
-        <h2>Why Choose Us?</h2>
-        <div class="benefit-item">
-            <i class="fas fa-truck"></i>
-            <h3>Fast Delivery</h3>
-            <p>Get your groceries delivered quickly and conveniently.</p>
-        </div>
-        <div class="benefit-item">
-            <i class="fas fa-leaf"></i>
-            <h3>Fresh Products</h3>
-            <p>We source only the freshest produce for our customers.</p>
-        </div>
-        <div class="benefit-item">
-            <i class="fas fa-hand-holding-usd"></i>
-            <h3>Great Prices</h3>
-            <p>Enjoy competitive prices on all our products.</p>
-        </div>
-    </section>
+        <section class="benefits">
+            <h2>Why Choose Us?</h2>
+            <div class="benefit-item">
+                <i class="fas fa-truck"></i>
+                <h3>Fast Delivery</h3>
+                <p>Get your groceries delivered quickly and conveniently.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-leaf"></i>
+                <h3>Fresh Products</h3>
+                <p>We source only the freshest produce for our customers.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Great Prices</h3>
+                <p>Enjoy competitive prices on all our products.</p>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2024 4M Grocery Store. All rights reserved.</p>
+        <p>&copy; 2024 MJ's Grocery Store. All rights reserved.</p>
     </footer>
 </body>
 </html>

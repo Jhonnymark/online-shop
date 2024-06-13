@@ -8,7 +8,7 @@ class Account extends MY_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->database();
-        $this->load->model('Cart_model'); // Load the Cart_model
+        $this->load->model('Cart_model');
     }
 
     public function index() {
@@ -16,17 +16,13 @@ class Account extends MY_Controller {
             redirect('login_form');
         }
     
-        // Get user data
         $data['user'] = $this->getUserData();
     
-        // Fetch user ID from session or wherever it's stored
         $user_id = $this->session->userdata('user_id');
     
-        // Load the Cart_model and get the cart count
         $this->load->model('Cart_model');
         $data['cart_count'] = $this->Cart_model->countCartItems($user_id);
     
-        // Load the view with user data and cart count
         $this->load->view('customer/account_dashboard', $data);
     }
     

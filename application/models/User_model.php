@@ -29,5 +29,9 @@ public function get_user_by_email($email) {
     $query = $this->db->get_where('users', array('email' => $email));
     return $query->row_array();
 }
+public function get_all_users() {
+    $query = $this->db->get('users');
+    return $query->result();
+}
 }
 ?>

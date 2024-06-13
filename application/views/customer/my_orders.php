@@ -228,7 +228,7 @@
         </a>
     </div>
     <nav id="menuItems">
-        <ul>
+    <ul>
             <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Home</a></li>
             <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Products</a></li>
             <li><a href="<?php echo base_url('index.php/customer/my-orders'); ?>">My Orders</a></li>

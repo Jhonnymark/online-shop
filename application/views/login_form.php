@@ -85,10 +85,25 @@
             text-decoration: none;
             font-weight: bold;
         }
+        .logo {
+            margin: 0 auto 20px; /* Center align horizontally and add bottom margin */
+            width: 70px; /* Increase size slightly */
+            height: 70px; /* Increase size slightly */
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #333; /* Border color */
+        }
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="login-form">
+        <div class="logo">
+            <img src="<?php echo base_url('images/mj_logo.png'); ?>" alt="Logo">
+        </div>
         <h2>Login</h2>
         <p>Welcome back! Fill in your login details.</p>
 

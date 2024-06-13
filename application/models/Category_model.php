@@ -8,7 +8,7 @@ class Category_model extends CI_Model {
  
     public function get_all() {
        $query = $this->db->get('category');
-       return $query->result(); // Use result() to get array of objects
+       return $query->result(); 
     }
  
     public function store() {    
@@ -26,7 +26,7 @@ class Category_model extends CI_Model {
        $data = [
           'category_name' => $this->input->post('category_name')
        ];
-       return $this->db->where('category_id', $category_id)->update('category', $data); // Corrected variable name
+       return $this->db->where('category_id', $category_id)->update('category', $data); 
     }
  
     public function delete($category_id) {

@@ -67,7 +67,7 @@ $route['cart/view'] = 'cart/view';
 $route['customer/my-orders'] = 'Order/my_orders';
 $route['account'] = 'account/index';
 $route['admin/products/add'] = 'products/add_product';
-$route['azdmin/category'] = 'Category/index';
+$route['admin/category'] = 'Category/index';
 $route['admin/edit_category/(:any)'] = 'category/edit_category/$1';
 $route['admin/add_category'] = 'category/add_category';
 $route['admin/users_view'] = 'UserView/index';
@@ -75,6 +75,8 @@ $route['admin/manage_order'] = 'orders/manage_order';
 $route['customer/order_confirmation/(:num)'] = 'customer_controller/order_confirmation/$1';
 $route['admin/products/free_delivery_setting'] = 'products/free_delivery_setting';
 $route['admin/products/delivery_settings'] = 'products/delivery_settings';
+$route['admin/admin_dash'] = 'admin_dashboard/admin_dash';
+$route['admin/generate_sales_report'] = 'admin/generate_sales_report';
 
 
 

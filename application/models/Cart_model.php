@@ -48,8 +48,6 @@ class Cart_model extends CI_Model {
         return $query->result_array();
     }
     public function get_product_details($item_id) {
-        // Assuming your product details are stored in a table named 'products'
-        // and 'cart' table stores the quantity for each product
 
         $this->db->select('products.product_id, products.prod_name, products.price, cart.quantity');
         $this->db->from('products');
@@ -71,7 +69,6 @@ class Cart_model extends CI_Model {
         $this->db->delete('cart');
     }
     public function update_stock_quantity($product_id, $quantity) {
-        // Decrement the stock quantity
         $this->db->set('stock', 'stock - ' . (int) $quantity, FALSE);
         $this->db->where('product_id', $product_id);
         $this->db->update('products');

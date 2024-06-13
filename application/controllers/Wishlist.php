@@ -10,7 +10,7 @@ class Wishlist extends CI_Controller {
 
     public function add_to_wishlist() {
         $product_id = $this->input->post('product_id');
-        $user_id = $this->session->userdata('user_id'); // Assuming user is logged in and user_id is stored in session
+        $user_id = $this->session->userdata('user_id');
 
         if ($product_id && $user_id) {
             $result = $this->wishlist_model->add_to_wishlist($user_id, $product_id);

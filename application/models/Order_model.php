@@ -41,7 +41,7 @@ class Order_model extends CI_Model {
             ];
         }
         
-        return array_values($orders); // Reset keys to be sequential
+        return array_values($orders); 
     }
 
     public function create_order($total_amount, $user_id) {
@@ -74,7 +74,7 @@ class Order_model extends CI_Model {
             'prod_name' => $prod_name,
             'price' => $price,
             'quantity' => $quantity,
-            'status' => 'Pending' // Assuming the status is set to 'Pending' initially
+            'status' => 'Pending'
         );
 
         // Insert the order item data into the 'order_items' table
@@ -93,5 +93,22 @@ class Order_model extends CI_Model {
             return false;
         }
     }
+        public function get_recent_orders() {
+            $query = $this->db->order_by('order_date', 'DESC')->get('orders');
+            return $query->result();
+        }
+        public function get_total_orders() {
+            return $this->db->count_all('orders');
+        }
+        public function get_pending_orders() {
+            $this->db->select('order_items.order_id, order_items.prod_name, order_items.price, order_items.quantity');
+            $this->db->from('order_items');
+            $this->db->where('order_items.status', 'Pending');
+            $query = $this->db->get();
+        
+            return $query->result_array();
+        }
+        
+    
 }
 ?>

@@ -17,10 +17,15 @@ class Orders_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function update_item_status($id, $status) {
-        $this->db->set('status', $status);
-        $this->db->where('id', $id);
-        $this->db->update('order_items');
+    // Update the status of an item and optionally set the received date if completed
+    public function update_item_status($item_id, $status, $received_date = null) {
+        $data = array(
+            'status' => $status,
+            'received_date' => $received_date
+        );
+
+        $this->db->where('id', $item_id);
+        $this->db->update('order_items', $data);
     }
 }
 

@@ -5,7 +5,7 @@ class Checkout extends MY_Controller {
         parent::__construct();
         $this->load->model('Cart_model');
         $this->load->model('Order_model');
-        $this->load->model('Settings_model'); // Ensure Settings_model is loaded
+        $this->load->model('Settings_model');
         $this->load->library('session');
     }
 
@@ -51,13 +51,9 @@ class Checkout extends MY_Controller {
         $order_id = $this->Order_model->create_order($total_amount, $user_id); // Pass both total amount and user ID
         if ($order_id) {
             foreach ($selected_items as $item_id) {
-                // Get product details from Cart_model
                 $product = $this->Cart_model->get_product_details($item_id);
-                // Check if quantity exists in the product details
                 if (isset($product['quantity'])) {
-                    // Insert each selected item into order_items table
                     $this->Order_model->add_item_to_order($order_id, $product['product_id'], $product['prod_name'], $product['price'], $product['quantity']);
-                    // Update stock quantity
                     $this->Cart_model->update_stock_quantity($product['product_id'], $product['quantity']);
                 } else {
                     echo "Failed to get product quantity. Please try again.";
@@ -65,13 +61,10 @@ class Checkout extends MY_Controller {
                 }
             }
     
-            // Remove placed items from cart
             $this->Cart_model->remove_items_from_cart($user_id, $selected_items);
     
-            // Redirect user to a confirmation page
             redirect('customer/order_confirmation/'.$order_id);
         } else {
-            // If order creation failed, display an error message
             echo "Order placement failed. Please try again.";
         }
     }

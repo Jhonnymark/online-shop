@@ -94,6 +94,12 @@
     </style>
 </head>
 <body>
+<a href="<?= site_url('products'); ?>" class="back-btn">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 11H7.41l2.29-2.29a1 1 0 10-1.42-1.42l-4 4a1 1 0 000 1.42l4 4a1 1 0 001.42-1.42L7.41 13H20a1 1 0 000-2z" fill="#333"/>
+        </svg>
+        Back to Products
+    </a>
     <h2>Edit Product</h2>
     <form method="post" action="<?= site_url('products/update/' . $product->product_id); ?>" enctype="multipart/form-data">
         <div class="form-group">

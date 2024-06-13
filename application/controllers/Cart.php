@@ -16,7 +16,6 @@ class Cart extends MY_Controller {
             // Redirect to the cart view page
             redirect('cart/view');
         } else {
-            // Handle the error
             show_error('Could not add product to cart.');
         }
     }
@@ -29,7 +28,8 @@ class Cart extends MY_Controller {
 
         $data['cart_items'] = $this->Cart_model->get_cart_items($user_id);
         $data['message'] = $this->session->flashdata('message');
-        $this->load->view('customer/cart_view', $data);  // Make sure this path matches your actual view path
+        $data['cart_count'] = $this->Cart_model->countCartItems($user_id);
+        $this->load->view('customer/cart_view', $data);
     }
 }
 ?>

@@ -127,15 +127,15 @@
 <body>
 <div class="navbar">
     <div class="logo-circle">
-        <a href="<?php echo base_url('customer_dash'); ?>">
+        <a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">
             <img src="<?php echo base_url('images/mj_logo.png'); ?>" alt="Logo">
         </a>
     </div>
     <nav id="menuItems">
-        <ul>
-            <li><a href="<?php echo base_url('customer_dash'); ?>">Home</a></li>
-            <li><a href="<?php echo base_url('products'); ?>">Products</a></li>
-            <li><a href="<?php echo base_url('my_orders'); ?>">My Orders</a></li>
+    <ul>
+            <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Home</a></li>
+            <li><a href="<?php echo base_url('index.php/customer/customer_dash'); ?>">Products</a></li>
+            <li><a href="<?php echo base_url('index.php/customer/my-orders'); ?>">My Orders</a></li>
             <li><a href="<?php echo base_url('about'); ?>">About</a></li>
         </ul>
     </nav>
